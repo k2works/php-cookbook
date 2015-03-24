@@ -5,4 +5,5 @@ license          'all_rights'
 description      'Installs/Configures php-env'
 long_description 'Installs/Configures php-env'
 version          '0.1.0'
-
+depends          'php', '~> 1.5.0'
+depends          'apache2', '~> 3.0.1'
