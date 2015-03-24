@@ -1,16 +1,22 @@
 ---
 driver:
-  name: vagrant
-
+  name: docker_cli
+  require_chef_omnibus: false
+  run_command:
+    - curl -L https://www.chef.io/chef/install.sh | bash
+  publish:
+    - 8100:80
+    #  no_cache: true
+      
 provisioner:
   name: chef_zero
-
+        
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.5
-
+  - name: ubuntu-14.04
+  #  - name: centos-6.6
+            
 suites:
   - name: default
     run_list:
-      - recipe[php-env::default]
+      - recipe[myweb::default]
     attributes:
