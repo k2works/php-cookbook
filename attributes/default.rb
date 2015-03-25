@@ -1,5 +1,3 @@
-require 'dotenv'
-
 node.default['my-webapp']['common_name'] = 'localhost'
 node.default['my-webapp']['docroot'] = "/var/www/html"
 node.default['my-webapp']['ssl_cert']['source'] = 'self-signed'
