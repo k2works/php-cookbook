@@ -5,7 +5,8 @@ driver:
   run_command:
     - curl -L https://www.chef.io/chef/install.sh | bash
   publish:
-    - 8100:80
+    #- 8100:80
+    #- 443:443
     #  no_cache: true
       
 provisioner:
@@ -13,8 +14,8 @@ provisioner:
         
 platforms:
   - name: ubuntu-14.04
-  #  - name: centos-6.6
-            
+  - name: centos-6.6
+
 suites:
   - name: default
     run_list:

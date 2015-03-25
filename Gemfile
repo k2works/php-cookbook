@@ -1,6 +1,8 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
-gem 'kitchen-docker_cli'
-gem 'berkshelf'
+group :development do
+   gem 'kitchen-docker_cli'
+   gem 'berkshelf'
+   gem 'pry'   
+end
