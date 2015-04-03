@@ -48,7 +48,7 @@ end
     mode  '0755'
     variables(
         CLIENT_ID: node['ne-Api']['client_id'],
-        CLIENT_SECRET: node.default['ne-Api']['client_secret']
+        CLIENT_SECRET: node['ne-Api']['client_secret']
     )
   end
 end
@@ -61,7 +61,7 @@ template 'neApiClient.php' do
   mode  '0755'
   variables(
       CLIENT_ID: node['ne-Api']['client_id'],
-      CLIENT_SECRET: node.default['ne-Api']['client_secret']
+      CLIENT_SECRET: node['ne-Api']['client_secret']
   )
   notifies :restart, 'service[apache2]'
 end

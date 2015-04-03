@@ -21,3 +21,6 @@ suites:
     run_list:
       - recipe[php-env::default]
     attributes:
+      ne-Api:
+        client_id: 'CLIENT_ID'
+        client_secret: 'CLIENT_SECRET'
