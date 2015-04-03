@@ -13,7 +13,9 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   # config.vm.box = "chef/ubuntu-14.04"
-  config.vm.box = "chef/centos-6.6"
+  # config.vm.box = "chef/centos-6.6"
+  config.env.enable
+  config.vm.box = ENV['BOX_NAME']
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -73,5 +75,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision "chef_zero" do |chef|
     chef.cookbooks_path = ["./", "./cookbooks", "./site-cookbooks"]
     chef.add_recipe "php-env"
+    chef.json = {
+        "ne-Api" => {
+            "client_id" => ENV['NE_API_CLIENT_ID'],
+            "client_secret" => ENV['NE_API_CLIENT_SECRET']
+        }
+    }
   end
 end
