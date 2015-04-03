@@ -12,6 +12,16 @@ cert = ssl_certificate 'my-webapp' do
 end
 
 include_recipe 'apache2'
+include_recipe 'apache2::mod_php5'
+
+case node[:platform]
+  when "ubuntu","debian"
+    package "php5-curl" do
+      action :install
+    end
+  when "centos"
+end
+
 include_recipe 'apache2::mod_ssl'
 web_app 'my-webapp' do
   # this cookbook includes a virtualhost template for apache2
