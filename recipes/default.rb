@@ -25,7 +25,7 @@ end
 
 include_recipe 'apache2::mod_php5'
 template 'phpinfo.php' do
-  path "#{node['my-webapp']['docroot']}phpinfo.php"
+  path "#{node['my-webapp']['docroot']}/phpinfo.php"
   source "phpinfo.php.erb"
   owner 'root'
   group 'root'
